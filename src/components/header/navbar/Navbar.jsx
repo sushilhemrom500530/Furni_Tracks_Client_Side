@@ -17,8 +17,10 @@ const Navbar = ({ children }) => {
     const getPrice = sales?.reduce((total, currentItem) => total + (currentItem?.price), 0);
     const [active, setActive] = useState(true);
     const location = useLocation();
+    const currentPath = location?.pathname;
+    const isCurrentPath = ['/all-shop', '/blog', '/checkout']?.includes(currentPath);
 
-    console.log("location:", location?.pathname)
+    console.log("location:", isCurrentPath, location)
 
 
     useEffect(() => {
@@ -56,8 +58,8 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <div className={`w-full navbar fixed z-10 
-                    ${isScrolled ? "text-white fixed bg-color top-0 left-0 w-full z-50  " :
-                        "bg-transparent "} ${location?.pathname === '/' ? 'text-white' : 'text-purple-500 '}`}
+                    ${isScrolled ? "!text-white fixed bg-color top-0 left-0 w-full z-50  " :
+                        "bg-transparent "} ${isCurrentPath ? 'text-[#6427ff]' : 'text-white'}`}
                 >
                     <div className="lg:max-w-[2520px] h-auto mx-auto lg:px-10 xl:px-20 w-full flex items-center justify-between lg:flex-row flex-row-reverse">
                         <div className="flex-none lg:hidden text-fuchsia-500 ">

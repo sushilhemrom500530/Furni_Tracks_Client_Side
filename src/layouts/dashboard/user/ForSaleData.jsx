@@ -39,10 +39,10 @@ const ForSaleData = ({ sale, refetch }) => {
                 </figure>
                 <div className='flex flex-col items-center justify-center gap-1'>
                     <h1>{sale?.title}</h1>
-                    <p className='text-[17px] font-bold '>Price: $ {sale?.price}</p>
+                    <p className='text-[17px] font-medium '>Price: $ {sale?.price}</p>
                 </div>
                 <div className='flex flex-col items-center justify-center '>
-                    <button onClick={() => handleDelete(sale?._id)} className='btn btn-sm bg-red-600  text-white hover:text-black'><RxCross1 className='text-3xl p-1' /></button>
+                    <button onClick={() => handleDelete(sale?._id)} className='btn btn-sm bg-red-600  text-white'><RxCross1 className='text-3xl p-1' /></button>
                 </div>
             </div>
         </div>
