@@ -147,7 +147,7 @@ const Setting = () => {
                         className="input input-bordered input-info w-full bg-white text-black mb-6"
                         required
                     />
-                    <Button>
+                    <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full" >
                         {
                             loading === true ? <div className="text-[17px] flex items-center gap-2 !w-full">
                                 <FiLoader className="w-6 h-6 animate-spin" /> processing

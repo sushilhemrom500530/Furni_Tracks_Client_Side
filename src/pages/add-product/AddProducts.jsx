@@ -134,7 +134,7 @@ const AddProducts = () => {
         }
     }
     return (
-        <div className="w-[90%] mx-auto dark:text-white">
+        <div>
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}

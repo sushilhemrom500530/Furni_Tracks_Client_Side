@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import AdminTitle from "../../../../components/title";
+import Button from "../../../../components/button";
 
 const SaleSummaryAdmin = () => {
     const [allSales, refetch, isLoading] = useAllSale();
@@ -49,7 +50,7 @@ const SaleSummaryAdmin = () => {
                             <th>Title</th>
                             <th>Email</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th className="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,12 +80,7 @@ const SaleSummaryAdmin = () => {
                                         <span>$ {sale?.price}</span>
                                     </td>
                                     <td className="border border-gray-300">
-                                        <span
-                                            onClick={() => handleDelete(sale?._id)}
-                                            className="cursor-pointer"
-                                        >
-                                            <MdDelete className="text-red-500 hover:text-red-500 hover:bg-transparent cursor-pointer text-3xl" />
-                                        </span>
+                                        <Button onClick={() => handleDelete(sale?._id)} icon={MdDelete}></Button>
                                     </td>
                                 </tr>
                             ))}

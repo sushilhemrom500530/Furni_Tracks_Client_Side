@@ -10,6 +10,7 @@ import { FaSpinner } from "react-icons/fa";
 import Loader from "../../../../shared/Loader";
 import { MdDeleteForever } from "react-icons/md";
 import Button from "../../../../components/button";
+import AdminTitle from "../../../../components/title";
 
 const UpdatedProduct = () => {
     const [showImage, setShowImage] = useState('');
@@ -134,11 +135,13 @@ const UpdatedProduct = () => {
 
 
     return (
-        <div className="w-[90%] mx-auto">
+        <div>
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
-            <h3 className="text-3xl text-center mt-12 mb-5 flex items-center justify-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb]">Update Product  </h3>
+            <AdminTitle>
+                Update Product
+            </AdminTitle>
             <div className="container mx-auto mt-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>

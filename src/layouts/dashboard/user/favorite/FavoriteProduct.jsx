@@ -7,6 +7,7 @@ import { useAuth } from "../../../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { BsCartPlus } from "react-icons/bs";
 import Button from './../../../../components/button/index';
+import AdminTitle from "../../../../components/title";
 
 const FavoriteProduct = () => {
     const [favorites, refetch, isLoading] = useFavorite();
@@ -72,13 +73,15 @@ const FavoriteProduct = () => {
         return <Loader />
     }
     return (
-        <div className="mt-12">
-            <h1 className=" mt-5 mb-36 text-2xl font-bold text-center">Show Your Favorite Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 my-10 ">
+        <div>
+            <AdminTitle>
+                Show Your Favorite Products
+            </AdminTitle>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-20">
                 {
                     favorites?.map(item =>
-                        <div key={item._id} className="!group text-start card !w-full !h-[310px]  !relative lg:!mb-20 !mb-20 md:!mb-20 !pt-28">
-                            <div className="absolute 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-12 w-36 h-36 bg-black rounded-full">
+                        <div key={item._id} className="text-start card !w-full !h-[310px]  !relative lg:!mb-20 !mb-20 md:!mb-20 !pt-28">
+                            <div className="absolute group 2xl:left-[30%] xl:left-[25%] lg:left-[18%] md:left-[30%] left-[28%] -top-12 w-36 h-36 bg-black rounded-full">
                                 <img
                                     src={item?.image}
                                     alt="love-image"
