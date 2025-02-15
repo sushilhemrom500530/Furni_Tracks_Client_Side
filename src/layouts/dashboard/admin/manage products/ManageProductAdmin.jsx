@@ -22,18 +22,19 @@ const ManageProductAdmin = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
                     {
                         furnitures?.length > 0 && furnitures?.map(furniture =>
-                            <div key={furniture?._id} className="bg-white shadow-md text-black flex items-center justify-center gap-3 w-full h-40">
+                            <div key={furniture?._id} className="bg-white relative shadow-md text-black flex items-center justify-center gap-3 w-full h-40">
                                 <figure className="w-44 h-full">
                                     <img src={furniture?.image} alt="product-image" className="w-full h-full" />
                                 </figure>
-                                <div>
-                                    <h1 className="font-bold mb-2">{furniture?.title?.length > 16 ? furniture?.title?.slice(0, 16) + "....." : furniture?.title}</h1>
-                                    <p>{furniture?.description?.length > 50 ? furniture?.description?.slice(0, 50) + "....." : furniture?.description}</p>
+                                <div className="pr-1">
+                                    <h1 className=" font-bold mb-2">{furniture?.title?.length > 16 ? furniture?.title?.slice(0, 16) + "....." : furniture?.title}</h1>
+                                    <p className="text-sm">{furniture?.description?.length > 55 ? furniture?.description?.slice(0, 55) + "....." : furniture?.description}</p>
                                     <div className="flex items-center justify-end mr-5 my-2">
-                                        <Link to={`/furnitures/${furniture?._id}`}>
+                                        <Link to={`/furnitures/${furniture?._id}`} className="absolute bottom-2 right-3">
                                             <Button
                                                 icon={FaArrowRight}
-                                                className="custom-bg-color px-2 text-white hover:translate-x-2 text-sm"
+                                                size={20}
+                                                className="custom-bg-color px-2 py-1 text-white hover:translate-x-2 text-sm"
                                             >
                                                 Show
                                             </Button>

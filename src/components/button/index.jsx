@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-export default function Button({ children, icon: Icon, onClick, className = "custom-bg-color py-2 px-4 hover-custom-bg-color" }) {
+export default function Button({ children, icon: Icon, size = 24, onClick, className = "custom-bg-color py-2 px-4 hover-custom-bg-color" }) {
     return (
         <>
             <button onClick={onClick ? onClick : () => { }} className="border-none text-white rounded font-medium group hover:text-gray-200 w-full">
@@ -9,7 +9,7 @@ export default function Button({ children, icon: Icon, onClick, className = "cus
                         children && <>{children} </>
                     }
                     {
-                        Icon && <Icon className="text-2xl" />
+                        Icon && <Icon size={size} />
                     }
                 </span>
             </button>

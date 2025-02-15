@@ -140,7 +140,7 @@ const CreateShop = () => {
                                     </div>
                                 </div>
 
-                                <Button type='submit' className='custom-bg-color hover-custom-bg-color py-3 mt-6 px-4 w-full text-center' >
+                                <Button type='submit' className='custom-bg-color hover-custom-bg-color py-3 mt-6 px-4 !w-full text-center' >
                                     {loading ? (
                                         <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                     ) : (

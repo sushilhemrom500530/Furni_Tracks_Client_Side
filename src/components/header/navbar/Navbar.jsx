@@ -9,6 +9,7 @@ import { FaDollarSign } from "react-icons/fa";
 import { RxCross1 } from 'react-icons/rx';
 import useSale from "../../../hooks/useSale";
 import ForSaleData from './../../../layouts/dashboard/user/ForSaleData';
+import Button from './../../button/index';
 
 const Navbar = ({ children }) => {
     const [sales, refetch,] = useSale();
@@ -154,13 +155,12 @@ const Navbar = ({ children }) => {
                             <h1 className="text-xl font-bold">Total Price : $ {getPrice}</h1>
                         </div>
                         <Link to='/checkout'>
-                            <button
+                            <Button
                                 onClick={() => handleToggle(!active)}
-                                disabled={sales?.length === 0}
-                                className="btn bg-gradient-to-r from-[#0939e8] to-[#ff0fdb]  text-white text-xl hover:text-blue-300">
-                                <FaDollarSign className="text-2xl font-bold" />
+                                icon={FaDollarSign}
+                            >
                                 Checkout Now
-                            </button>
+                            </Button>
                         </Link>
                     </div>
                 </div>

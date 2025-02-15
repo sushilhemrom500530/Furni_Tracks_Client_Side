@@ -69,7 +69,7 @@ const AllProducts = () => {
         setFindData(currentData)
     }
     return (
-        <div className="mb-20 mt-8">
+        <div className="mb-20">
             <SpecificData isOpen={isOpen} closeModal={closeModal} findData={findData} />
             <div className=" flex items-center justify-between flex-col lg:flex-row">
                 <AdminTitle className="lg:!text-start">
