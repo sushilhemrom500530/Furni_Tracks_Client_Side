@@ -9,6 +9,7 @@ import { useAuth } from "../../../../hooks/useAuth";
 import { FaSpinner } from "react-icons/fa";
 import Loader from "../../../../shared/Loader";
 import { MdDeleteForever } from "react-icons/md";
+import Button from "../../../../components/button";
 
 const UpdatedProduct = () => {
     const [showImage, setShowImage] = useState('');
@@ -133,7 +134,7 @@ const UpdatedProduct = () => {
 
 
     return (
-        <div className="w-[90%] mx-auto dark:text-white">
+        <div className="w-[90%] mx-auto">
             {/* <Helmet>
                 <title>Product Added | Inventory M</title>
             </Helmet> */}
@@ -141,85 +142,75 @@ const UpdatedProduct = () => {
             <div className="container mx-auto mt-12">
                 <form onSubmit={handleAddedProduct}>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                        <div className='space-y-6'>
+                        <div className='space-y-6  card !py-10 h-max'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='dark:text-white block text-black font-medium'>
+                                    <label htmlFor='location' className=' block text-black font-medium'>
                                         Product Name
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_name' defaultValue={findUpdataData?.title} id='product_name' type='text' placeholder='Product name' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='product_name' defaultValue={findUpdataData?.title} id='product_name' type='text' placeholder='Product name' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block  text-black font-medium'>
                                         Location
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info '
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 '
                                         name='location' defaultValue={findUpdataData?.location} id='location' type='text' placeholder='Location' required
                                     />
                                 </div>
                             </div>
 
                             <div className='space-y-1 w-full'>
-                                <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                <label htmlFor='location' className='block text-black font-medium'>
                                     Image
                                 </label>
-                                <div className=' bg-white w-full m-auto rounded-lg'>
-                                    <label className="my-5"></label>
-                                    <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                        {
-                                            showImage
-                                                ?
-                                                <div className='relative'>
-                                                    <img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
-                                                    </span>
-                                                </div>
-                                                :
-                                                <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
-                                        }
-                                        {/* <input type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
-                                    </div>
+                                <div className=' w-full text-black bg-white m-auto rounded-lg'>
+                                    {
+                                        showImage
+                                            ?
+                                            <div className='relative'>
+                                                <img src={showImage} alt="imageShow" className='w-full h-32' /> <span onClick={handleRemoveImage} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-5xl text-red-500' />
+                                                </span>
+                                            </div>
+                                            :
+                                            <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
+                                    }
                                 </div>
                             </div>
 
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Set Thumbnail1
                                     </label>
-                                    <div className=' bg-white w-full m-auto rounded-lg'>
-                                        <label className="my-5"></label>
-                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
-                                            {
-                                                showThumbnail1
-                                                    ?
-                                                    <div className="relative">
-                                                        <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
-                                                    </div>
-                                                    :
-                                                    <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
-                                            }
-
-                                            {/* <input type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
-                                        </div>
+                                    <div className=' bg-white w-full m-auto text-black rounded-lg'>
+                                        {
+                                            showThumbnail1
+                                                ?
+                                                <div className="relative">
+                                                    <img src={showThumbnail1} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb1} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' /></span>
+                                                </div>
+                                                :
+                                                <input onChange={handleShowThumb1} type='file' name='thumbnail1' id='thumbnail1' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white" />
+                                        }
                                     </div>
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Set Thumbnail2
                                     </label>
                                     <div className=' bg-white w-full m-auto rounded-lg'>
                                         <label className="my-5"></label>
-                                        <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg overflow-hidden'>
+                                        <div className=' bg-white text-black w-full m-auto rounded-lg'>
                                             {
                                                 showThumbnail2 ? <div className="relative">
                                                     <img src={showThumbnail2} defaultValue={findUpdataData?.thumb2} alt="imageShow" className='w-full h-32' /><span onClick={handleRemoveThumb2} className='absolute rounded-full -top-3 -right-6 cursor-pointer'><MdDeleteForever className='text-3xl text-red-500' />
                                                     </span>
                                                 </div>
                                                     :
-                                                    <input onChange={handleShowThumb2} defaultValue={findUpdataData?.thumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " />
+                                                    <input onChange={handleShowThumb2} defaultValue={findUpdataData?.thumb2} type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-white " />
                                             }
-                                            {/* <input type='file' name='thumbnail2' id='thumbnail2' accept='image/*' className="file-input w-full file-input-info focus:border-none " /> */}
                                         </div>
                                     </div>
                                 </div>
@@ -227,30 +218,30 @@ const UpdatedProduct = () => {
 
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block  text-black font-medium'>
                                         Quantity
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='quantity' defaultValue={findUpdataData?.quantity} id='quantity' type='number' placeholder='Enter quantiey' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='quantity' defaultValue={findUpdataData?.quantity} id='quantity' type='number' placeholder='Enter quantiey' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Product Price
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_cost' defaultValue={findUpdataData?.price} id='product_cost' type='number' placeholder='Product Cost' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='product_cost' defaultValue={findUpdataData?.price} id='product_cost' type='number' placeholder='Product Cost' required
                                     />
                                 </div>
                             </div>
                         </div>
 
 
-                        <div className='space-y-6'>
+                        <div className='space-y-6 card !py-10 h-max'>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Category
                                     </label>
-                                    <select name="category" defaultValue={findUpdataData?.category} id="category" className="select select-info w-full max-w-xs">
+                                    <select name="category" id="category" defaultValue={findUpdataData?.category} className=" w-full text-black max-w-xs border rounded-md border-blue-400">
                                         <option disabled selected required>{findUpdataData?.category}</option>
                                         {
                                             category?.length > 0 && category.map(categ => <option key={categ?._id} required>
@@ -260,10 +251,10 @@ const UpdatedProduct = () => {
                                     </select>
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Rating
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='rating' defaultValue={findUpdataData?.rating} id='rating' type='number' placeholder='Product Cost' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='rating' defaultValue={findUpdataData?.rating} id='rating' type='number' placeholder='Product Cost' required
                                     />
                                 </div>
                             </div>
@@ -271,32 +262,32 @@ const UpdatedProduct = () => {
                                 <label htmlFor='description' className='block font-medium'>
                                     Description
                                 </label>
-                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md input input-info ' name='description' defaultValue={findUpdataData?.description} placeholder="Write description"
+                                <textarea id='description' className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md border-blue-400  ' name='description' defaultValue={findUpdataData?.description} placeholder="Write description"
                                 ></textarea>
                             </div>
                             <div className="flex flex-col md:flex-row lg:flex-row w-full gap-4">
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Product Profit
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='product_profit' defaultValue={findUpdataData?.product_profit} id='product_profit' type='number' placeholder='Product Profit' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='product_profit' defaultValue={findUpdataData?.product_profit} id='product_profit' type='number' placeholder='Product Profit' required
                                     />
                                 </div>
                                 <div className='space-y-1 w-full'>
-                                    <label htmlFor='location' className='block dark:text-white text-black font-medium'>
+                                    <label htmlFor='location' className='block text-black font-medium'>
                                         Discount %
                                     </label>
-                                    <input className='w-full px-4 py-3 text-gray-800 border rounded-md input input-info ' name='discount' defaultValue={findUpdataData?.discount} id='discount' type='number' placeholder='Discount %' required
+                                    <input className='w-full px-4 py-2 text-gray-800 border rounded-md border-blue-400 ' name='discount' defaultValue={findUpdataData?.discount} id='discount' type='number' placeholder='Discount %' required
                                     />
                                 </div>
                             </div>
-                            <button type='submit' className='btn w-full mt-5 p-3 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '>
+                            <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full" >
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
                                     'Update Product'
                                 )}
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </form>
