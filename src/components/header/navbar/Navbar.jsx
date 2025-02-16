@@ -18,7 +18,7 @@ const Navbar = ({ children }) => {
     const [active, setActive] = useState(true);
     const location = useLocation();
     const currentPath = location?.pathname;
-    const isCurrentPath = ['/all-shop', '/blog', '/checkout']?.includes(currentPath);
+    const isCurrentPath = ['/all-shop', '/blog', '/checkout']?.includes(currentPath) || currentPath?.startsWith('/furni-details/');
 
     console.log("location:", isCurrentPath, location)
 

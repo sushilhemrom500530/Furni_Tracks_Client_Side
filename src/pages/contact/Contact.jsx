@@ -4,6 +4,8 @@ import { FaSpinner } from "react-icons/fa";
 import { useState } from "react";
 import FooterPage from "../footer/FooterPage";
 import SimpleMap from "./map/SimpleMap";
+import Button from './../../components/button/index';
+import toast from "react-hot-toast";
 
 
 
@@ -13,11 +15,16 @@ const Contact = () => {
     const handleSubmit = (e) => {
         setLoading(true);
         e.preventDefault();
-        // const form = e.target;
-        // const fullName = form.full_name.value;
-        // const email = form.email.value;
-        // const message = form.message.value;
-        // console.log(fullName, email, message);
+        const form = e.target;
+        const fullName = form.full_name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+        console.log(fullName, email, message);
+        if (fullName && email && message) {
+            form.reset();
+            setLoading(false);
+            return toast.success('Message sent successfully');
+        }
     }
     return (
         <div>
@@ -31,7 +38,7 @@ const Contact = () => {
             </div>
             <div className="flex items-start justify-center gap-6 flex-col lg:flex-row-reverse p-5 w-[90%] mx-auto mt-14 mb-32">
                 <div data-aos="fade-left" className="w-full h-full lg:w-[35%] space-y-4 text-start flex items-center justify-center lg:items-start lg:justify-center flex-col">
-                    <h1 className=" my-5 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
+                    <h1 className=" my-5 font-bold  text-2xl md:text-5xl lg:text-5xl text_gradient text-center">
                         Contact Us
                     </h1>
                     <div className="flex items-center justify-center gap-6">
@@ -77,8 +84,8 @@ const Contact = () => {
                         </h1>
                     </div>
                 </div>
-                <div className="w-full h-full lg:w-[65%] "  data-aos="fade-up">
-                    <h1 className="mt-5 mb-12 font-bold text-transparent text-2xl md:text-5xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#0939e9] to-[#ff0fdb] text-center">
+                <div className="w-full h-full lg:w-[65%] " data-aos="fade-up">
+                    <h1 className="mt-5 mb-12 font-bold text-2xl md:text-5xl lg:text-5xl text_gradient text-center">
                         Send A Message
                     </h1>
                     <form onSubmit={handleSubmit}>
@@ -94,7 +101,7 @@ const Contact = () => {
                                             name='full_name'
                                             id='full_name'
                                             type='text'
-                                            placeholder='enter your full name...'
+                                            placeholder='Name...'
                                             required
                                         />
                                     </div>
@@ -106,7 +113,7 @@ const Contact = () => {
                                             name='email'
                                             id='email'
                                             type='text'
-                                            placeholder='enter your email...'
+                                            placeholder='Email...'
                                             required
                                         />
                                     </div>
@@ -123,16 +130,12 @@ const Contact = () => {
                                         id='message'
                                         className='block focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border rounded-md  border-blue-400 '
                                         name='message'
-                                        placeholder="write message..."
+                                        placeholder="Message..."
                                     >
                                     </textarea>
                                 </div>
                             </div>
-
-                            <button
-                                type='submit'
-                                className='btn w-full p-3 mt-5 text-[18px] text-center font-medium hover:text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-black '
-                            >
+                            <Button disabled={loading} className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full mt-5">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'>
                                         <FaSpinner className='m-auto animate-spin' size={24} />
@@ -141,7 +144,7 @@ const Contact = () => {
                                 ) : (
                                     'Send'
                                 )}
-                            </button>
+                            </Button>
                         </div>
                     </form>
                 </div>
