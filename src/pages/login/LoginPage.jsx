@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { FaEyeSlash, FaRegEye, FaSpinner } from 'react-icons/fa';
 import { useState, useRef } from 'react';
+import Button from '../../components/button';
 
 const LoginPage = () => {
     const axiosPbulic = useAxiosPublic();
@@ -97,7 +98,7 @@ const LoginPage = () => {
                     </div>
                     <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gray-700/50 backdrop-blur-md">
                         <form onSubmit={handleSubmit} className="p-5 space-y-3">
-                            <h1 className="text-3xl font-bold mb-12">Please Login</h1>
+                            <h1 className="text-3xl font-bold mb-12 text-center">Login Now</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px] font-medium">Email Address</label>
                                 <input
@@ -134,18 +135,13 @@ const LoginPage = () => {
                                     Sign up
                                 </Link>
                             </p>
-                            <button
-                                type="submit"
-                                className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] outline-none border-none font-medium hover:text-blue-500 w-full"
-                            >
+                            <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full">
                                 {loading ? (
-                                    <span className="flex items-center justify-center gap-3">
-                                        <FaSpinner className="m-auto animate-spin" size={24} /> Processing....
-                                    </span>
+                                    <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
                                     'Sign in'
                                 )}
-                            </button>
+                            </Button>
                         </form>
 
                         <div className="flex items-center justify-center gap-5">

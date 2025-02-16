@@ -144,7 +144,6 @@ const SignupPage = () => {
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Set Your Profile Picture</label>
-                                {/* <input type="file"  {...register("image", { required: true })} name="image" className="file-input file-input-bordered file-input-info w-full bordermb-1 bg-transparent" id="" /> */}
                                 {errors.image && <span className="text-red-500 mt-1">image is required!</span>}
                                 {
                                     showImage ?
@@ -158,7 +157,7 @@ const SignupPage = () => {
                                         <input onChange={handleImage} type='file' name='image' id='image' accept='image/*' className="file-input w-full file-input-info focus:border-none bg-transparent" placeholder='choose your image.....' />
                                 }
                             </div>
-                            <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 text-lg underline">Sign In</Link></p>
+                            <p className="text-base font-medium my-8">Already have an account?{' '} Please <Link to='/login' className="text-blue-500 text-lg underline">Sign In</Link></p>
                             <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
