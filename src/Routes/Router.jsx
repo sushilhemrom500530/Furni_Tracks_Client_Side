@@ -17,7 +17,6 @@ import Promotion from "../layouts/dashboard/promotion/Promotion";
 import Setting from "../layouts/dashboard/setting/Setting";
 import ManageAccount from "../layouts/dashboard/manage account/ManageAccount";
 import PaymentSection from "../pages/checkout/PaymentSection";
-import UserHome from "../layouts/dashboard/user/UserHome";
 import AddProducts from "../pages/add-product/AddProducts";
 import ManageProduct from './../layouts/dashboard/manager/manage product/ManageProduct';
 import MyProduct from "../layouts/dashboard/manager/my product/MyProduct";
