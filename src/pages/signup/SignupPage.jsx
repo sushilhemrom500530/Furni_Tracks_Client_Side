@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { FaSpinner, FaRegEye, FaEyeSlash } from 'react-icons/fa';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { MdDeleteForever } from 'react-icons/md';
+import Button from './../../components/button/index';
 
 const SignupPage = () => {
     const axiosPbulic = useAxiosPublic();
@@ -112,7 +113,7 @@ const SignupPage = () => {
                     </div>
                     <div className="card-body p-0 lg:p-8 m-5 w-full lg:w-1/2 min-h-[70vh] text-white bg-gray-700/50 backdrop-blur-md pb-8 ">
                         <form onSubmit={handleSubmit(handleSignIn)} className="p-5 space-y-3 text-gray-200">
-                            <h1 className="text-3xl font-bold mb-12 text-white">Please Register Now</h1>
+                            <h1 className="text-3xl font-bold mb-12 text-center text-white">Register Now</h1>
                             <div className="space-y-3">
                                 <label className="text-[18px]  font-medium">Username </label>
                                 <input type="text"  {...register("name", { required: true })} name="name" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-2" id="" placeholder="Enter your name...." />
@@ -128,11 +129,11 @@ const SignupPage = () => {
                                 <input type={`${showPassword ? "text" : "password"}`}  {...register("password", {
                                     required: true, minLength: 6,
                                     pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-                                })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 mb-1 relative" id="" placeholder="Enter your password" />
+                                })} name="password" className="bg-transparent px-4 py-3 text-gray-200 w-full border rounded-md border-blue-400 relative" id="" placeholder="Enter your password" />
                                 {errors.password?.type === "minLength" && <span className="text-red-600">password length must be 6 characters or longer!</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-600">password must have one uppercase one lowercase one number and one special character!</span>}
                                 {errors.password?.type === "required" && (
-                                    <p className="text-red-600">password is required!</p>
+                                    <p className="text-red-600 !m-0">password is required!</p>
                                 )}
                                 <span onClick={handleShowPassword} className='absolute top-10 right-2 cursor-pointer'>{
                                     showPassword ?
@@ -158,13 +159,13 @@ const SignupPage = () => {
                                 }
                             </div>
                             <p className="text-base font-medium my-8"> have an account?{' '} Please <Link to='/login' className="text-blue-500 text-lg underline">Sign In</Link></p>
-                            <button type='submit' className="btn px-8 text-white bg-gradient-to-r from-[#0939e8] to-[#ff0fdb] text-[18px] font-medium hover:text-blue-500 w-full  outline-none border-none">
+                            <Button className="custom-bg-color py-2 px-4 hover-custom-bg-color !w-full">
                                 {loading ? (
                                     <span className='flex items-center justify-center gap-3'> <FaSpinner className='m-auto animate-spin' size={24} /> Processing....</span>
                                 ) : (
                                     'Sign Up'
                                 )}
-                            </button>
+                            </Button>
                         </form>
                         <div className="w-[90%] md:w-2/3 lg:w-[80%] mx-auto pb-6">
                             <div className="divider divide-x-0 divider-primary text-2xl">Or</div>
