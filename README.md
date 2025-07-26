@@ -106,10 +106,10 @@ project-client-side/
 ## Installation & Setup
 
 ### Clone the repository
-git clone https://github.com/your-username/furni-track.git
+git clone https://github.com/sushilhemrom500530/Furni_Tracks_Client_Side.git
 
 ### Navigate to the project folder
-cd project-client-side
+cd Furni_Tracks_Client_Side
 
 ### Install dependencies
 npm install
