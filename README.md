@@ -102,6 +102,7 @@ project-client-side/
 ├── vite.config.js
 └── package.json
 
+```
 ## Installation & Setup
 # Clone the repository
 git clone https://github.com/your-username/furni-track.git
